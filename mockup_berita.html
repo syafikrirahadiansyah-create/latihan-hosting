@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cityzen Daily - Berita Manchester City</title>
+    
+    <style>
+        
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #001838;
+            font-size: 13px;
+
+            background-image: url(bckground\ stadion\ img.webp); 
+
+            
+            background-size: cover;
+
+            
+            background-position: center center;
+
+            
+            background-repeat: no-repeat;
+
+            
+            background-attachment: fixed;
+            /* ------------------------------- */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto; 
+            background-color: #fff; 
+            padding: 20px;
+            
+            box-shadow: 0 15px 50px rgba(0,0,0,0.8); 
+            border-radius: 8px;
+        }
+
+        a { text-decoration: none; color: #001838; transition: 0.3s; }
+        a:hover { color: #6CABDD; } 
+        ul, ol { list-style: none; }
+
+        /* Pengaturan Gambar agar Rapi */
+        .story-img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #6CABDD;
+            border-radius: 4px;
+        }
+        
+        .mid-height { height: 140px; }
+        .footer-height { height: 160px; }
+        .ad-height { height: 200px; object-fit: cover; }
+
+        /* ===== HEADER ===== */
+        .top-nav {
+            display: flex;
+            align-items: center;
+            background-color: #001838;
+            color: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+
+        .logo {
+            font-family: 'Arial Black', sans-serif;
+            font-size: 24px;
+            color: #6CABDD;
+            margin-right: 30px;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links { display: flex; flex-wrap: wrap; }
+        .nav-links li {
+            margin-right: 20px;
+            font-weight: bold;
+            font-size: 11px;
+            color: white;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+        .nav-links li:hover { color: #6CABDD; }
+
+        /* ===== BREAKING NEWS ===== */
+        .breaking-banner {
+            display: flex;
+            border: 1px solid #6CABDD;
+            margin-bottom: 20px;
+            align-items: stretch;
+            background-color: #fff;
+        }
+
+        .label-breaking {
+            background-color: #6CABDD;
+            color: #001838;
+            font-weight: bold;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .breaking-content {
+            flex-grow: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 15px;
+        }
+
+        .main-breaking { font-weight: bold; font-size: 14px; }
+        .side-breaking { font-size: 11px; color: #555; }
+        .time { color: #cc0000; font-weight:bold; font-size: 10px; margin-left: 5px; }
+
+        /* ===== GRID LAYOUT ===== */
+        .main-content-grid {
+            display: grid;
+            grid-template-columns: 220px 1fr 260px;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 800;
+            color: #6CABDD;
+            border-bottom: 2px solid #001838;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .sidebar li { margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .sidebar .time { color: #888; display: block; margin-top: 4px;}
+
+        .most-popular-list { list-style: none; counter-reset: mp-counter; }
+        .most-popular-list li { 
+            position: relative; 
+            padding-left: 30px; 
+            font-weight: bold; 
+            font-size: 13px;
+        }
+        .most-popular-list li::before {
+            counter-increment: mp-counter;
+            content: counter(mp-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #001838;
+            color: #fff;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 50%;
+            font-size: 10px;
+        }
+
+        /* Top Story */
+        .top-story h1 { font-size: 32px; margin-bottom: 10px; line-height: 1.1; color: #001838; }
+        .top-story .sub-headline { font-weight: bold; margin-bottom: 15px; font-size: 16px; color: #555; }
+        .top-story ul { list-style: none; margin-bottom: 30px; }
+        .top-story ul li { padding-left: 20px; position: relative; margin-bottom: 5px; }
+        .top-story ul li::before { content: "⚽"; position: absolute; left: 0; font-size: 10px; }
+
+        /* Grid Tengah */
+        .mid-story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        /* Footer */
+        .bottom-stories-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            background-color: #001838;
+            padding: 20px;
+            color: white;
+            border-radius: 4px;
+        }
+        
+        .bottom-stories-row .story-card h4 { color: white; }
+        .story-card h4 { font-size: 15px; margin-bottom: 5px; line-height: 1.3; font-weight: 700;}
+        .story-card .story-desc { color: #666; font-size: 12px; }
+
+        @media (max-width: 768px) {
+            .main-content-grid, .mid-story-grid, .bottom-stories-row { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="top-nav">
+            <div class="logo">CITYZEN DAILY</div>
+            <ul class="nav-links">
+                <li>JADWAL</li>
+                <li>TIKET</li>
+                <li>TIM PRIA</li>
+                <li>TIM WANITA</li>
+                <li>AKADEMI</li>
+                <li>STADION ETIHAD</li>
+                <li>TOKO</li>
+                <li>CITY+</li>
+            </ul>
+        </header>
+
+        <div class="breaking-banner">
+            <div class="label-breaking">PUSAT PERTANDINGAN</div>
+            <div class="breaking-content">
+                <div class="main-breaking">
+                   SKOR AKHIR: Man City 4 - 1 Arsenal <span class="time">FT</span>
+                </div>
+                <div class="side-breaking">
+                    Laga Berikut: vs Liverpool (Anfield) - Minggu 16:30
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content-grid">
+
+            <aside class="col-left sidebar">
+                <h3 class="section-title">UPDATE TERBARU</h3>
+                <ul class="latest-news-list">
+                   <li><a href="#">Konferensi pers Pep Guardiola: "Kita harus tampil sempurna."</a><span class="time">10:30 WIB</span></li>
+                   <li><a href="#">Kevin De Bruyne kembali berlatih penuh jelang laga</a><span class="time">09:15 WIB</span></li>
+                   <li><a href="#">Resmi: Tanggal peluncuran jersey baru dikonfirmasi</a></li>
+                   <li><a href="#">Laporan Akademi: U21 menangkan derby 3-0</a><span class="time">Kemarin</span></li>
+                   <li><a href="#">Bursa Transfer: City dikaitkan dengan wonderkid Brasil</a></li>
+                </ul>
+            </aside>
+
+            <main class="col-center">
+                <article class="top-story">
+                    <img src="haaland-1 img.webp" class="story-img" style="height: auto; border:none;">
+                    
+                    <h1>HAALAND PECAHKAN REKOR LAGI DI ETIHAD</h1>
+                    <p class="sub-headline">Striker asal Norwegia ini mencetak hat-trick ke-5 musim ini saat City mendominasi.</p>
+                    <ul>
+                        <li>Analisis: Bagaimana Foden menemukan ruang di lini tengah</li>
+                        <li>Rating Pemain: Penyelamatan krusial Ederson di menit 80</li>
+                    </ul>
+                </article>
+
+                <div class="mid-story-grid">
+                    <div class="story-card">
+                        <img src="phil foden-1 img.jpeg" alt="Phil Foden" class="story-img mid-height">
+                        <h4>Foden: "Saya ingin tinggal di sini selamanya"</h4>
+                        <p class="story-desc">Wawancara eksklusif dengan sang 'Stockport Iniesta'.</p>
+                    </div>
+                    <div class="story-card">
+                        <img src="pep guardiola-1 img.jpg" alt="Pep Guardiola" class="story-img mid-height">
+                        <h4>Masterclass Taktik Pep dijelaskan</h4>
+                        <p class="story-desc">Mengapa peran 'inverted full-back' mengubah sepak bola.</p>
+                    </div>
+                    <div class="story-card">
+                        <img src="stadion-1 img.webp" alt="Stadion Etihad" class="story-img mid-height">
+                        <h4>Ekspansi Etihad: Update konstruksi</h4>
+                        <p class="story-desc">Kapasitas akan bertambah menjadi 60.000 pada 2026.</p>
+                    </div>
+                    <div class="story-card">
+                        <img src="liga champion img.webp" alt="Trofi UCL" class="story-img mid-height">
+                        <h4>Undian Liga Champions: Siapa lawan berikutnya?</h4>
+                    </div>
+                </div>
+            </main>
+
+            <aside class="col-right sidebar">
+                <div class="ad-block" style="margin-bottom: 20px;">
+                    <img src="etihad ads-1 img.jpg" alt="Iklan Sponsor" class="story-img ad-height">
+                </div>
+
+                <h3 class="section-title">SEDANG TREN</h3>
+                <ol class="most-popular-list">
+                    <li>Tonton: Momen lucu Grealish saat latihan</li>
+                    <li>Info tiket untuk semifinal Liga Champions</li>
+                    <li>Update cedera Ederson: Berapa lama dia absen?</li>
+                    <li>Pilih Pemain Terbaik Bulan Ini versi Anda</li>
+                    <li>Kilas Balik: Aguerooooo! 10 tahun berlalu</li>
+                </ol>
+            </aside>
+
+        </div> 
+
+        <div class="bottom-stories-row">
+             <div class="story-card">
+                <img src="tim leadis img.webp" alt="Tim Wanita" class="story-img footer-height">
+                <h4>Tim Wanita amankan kemenangan vital di WSL</h4>
+            </div>
+            <div class="story-card">
+                <img src="community city img.webp" alt="Komunitas" class="story-img footer-height">
+                <h4>City in the Community: Proyek baru untuk sepak bola jalanan</h4>
+            </div>
+            <div class="story-card">
+                <img src="esport city img.jpg" alt="Esports" class="story-img footer-height">
+                <h4>Tim Esports Man City menangkan turnamen global</h4>
+            </div>
+            <div class="story-card">
+                <img src="new jersey city img.webp" alt="Jersey Baru" class="story-img footer-height">
+                <h4>Bocoran: Apakah ini desain jersey home musim depan?</h4>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

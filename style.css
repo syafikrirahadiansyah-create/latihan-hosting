@@ -1,0 +1,97 @@
+#wrapper {
+    width: 1100px;
+    background: #eee;
+    padding: 10px;
+}
+
+/* Header & Nav */
+#header {
+    width: 100%;
+    height: 60px;
+    background: #06f016;
+    margin-bottom: 10px;
+}
+
+#nav {
+    width: 100%;
+    height: 40px;
+    background: #af0813;
+    margin-bottom: 15px;
+}
+
+/* Breaking News */
+#breaking {
+    width: 100%;
+    height: 40px;
+    background: #dffb0d;
+    margin-bottom: 20px;
+}
+
+/* === 3 KOTAK DALAM 1 BARIS === */
+#toprow {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#logo {
+    width: 20%;
+    height: 150px;
+    background: #986809;
+}
+
+#bignews {
+    width: 50%;
+    height: 150px;
+    background: #86ccee;
+}
+
+#sidebreaking {
+    width: 30%;
+    height: 150px;
+    background: #99186e;
+}
+
+/* === 3 KOTAK UTAMA === */
+#leftcol {
+    width: 30%;
+    height: 300px;
+    background: #4f0e91;
+    float: left;
+    margin-right: 3%;
+    margin-bottom: 20px;
+}
+
+#midcol {
+    width: 34%;
+    height: 300px;
+    background: #af9c2c;
+    float: left;
+    margin-right: 3%;
+    margin-bottom: 20px;
+}
+
+#rightcol {
+    width: 30%;
+    height: 300px;
+    background: #a94747;
+    float: left;
+    margin-bottom: 20px;
+}
+
+/* Top Picks */
+#toppicks {
+    clear: both;
+    width: 100%;
+    height: 200px;
+    background: #25a242;
+    margin-bottom: 20px;
+}
+
+/* Footer */
+#footer {
+    width: 100%;
+    height: 60px;
+    background: #560455;
+}
